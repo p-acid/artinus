@@ -7,6 +7,8 @@ export const ProductSchema = z.object({
   thumbnail: z.string(),
 });
 
+export type ProductSchema = z.infer<typeof ProductSchema>;
+
 export const ProductListSchema = z.object({
   products: z.array(ProductSchema),
   total: z.number(),
@@ -23,3 +25,5 @@ export const ProductDetailSchema = z.object({
   thumbnail: z.string(),
   tags: z.array(z.string()),
 });
+
+export type ProductDetailSchema = z.infer<typeof ProductDetailSchema>;

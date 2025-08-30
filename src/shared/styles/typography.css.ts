@@ -23,9 +23,9 @@ export const typography = {
     lineHeight: "28px",
     letterSpacing: "0px",
   },
-  body_1_bold: {
+  body_1_semibold: {
     fontSize: "16px",
-    fontWeight: 700,
+    fontWeight: 600,
     lineHeight: "24px",
     letterSpacing: "0px",
   },
@@ -35,9 +35,9 @@ export const typography = {
     lineHeight: "24px",
     letterSpacing: "0px",
   },
-  body_2_bold: {
+  body_2_semibold: {
     fontSize: "14px",
-    fontWeight: 700,
+    fontWeight: 600,
     lineHeight: "20px",
     letterSpacing: "0px",
   },
@@ -47,9 +47,9 @@ export const typography = {
     lineHeight: "20px",
     letterSpacing: "0px",
   },
-  detail_bold: {
+  detail_semibold: {
     fontSize: "12px",
-    fontWeight: 700,
+    fontWeight: 600,
     lineHeight: "16px",
     letterSpacing: "0px",
   },

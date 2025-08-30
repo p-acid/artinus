@@ -33,6 +33,5 @@ export const useInfiniteProductList = () =>
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
-      revalidateOnMount: false,
     },
   );
