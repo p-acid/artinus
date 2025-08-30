@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router";
 
-import { ProductDetailPage } from "@/pages/product-detail/ui";
-import { ProductListPage } from "@/pages/product-list/ui";
+import { ProductDetailPage } from "@/pages/product-detail";
+import { ProductListPage } from "@/pages/product-list";
 import { PAGE_ROUTES } from "@/shared/consts/page-routes";
 
 import { RootLayout } from "./layout/root-layout";
