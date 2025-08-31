@@ -1,9 +1,10 @@
-import { Link, useParams } from "react-router";
-
-import { PAGE_ROUTES } from "@/shared/consts/page-routes";
+import { useParams } from "react-router";
 
 import { useProductDetail } from "../hooks/use-product-detail";
 import type { ProductDetailPageParams } from "../types/page-params";
+import { ContentSection } from "./content-section";
+import * as styles from "./index.css";
+import { InfoSection } from "./info-section";
 
 export const ProductDetailPage = () => {
   const { productId } = useParams<ProductDetailPageParams>();
@@ -12,17 +13,28 @@ export const ProductDetailPage = () => {
     productId: productId ? Number(productId) : null,
   });
 
+  if (!productDetail) {
+    return <div>로딩중 ...</div>;
+  }
+
   return (
-    <div>
-      <Link to={PAGE_ROUTES.PRODUCTS}>Go to Products</Link>
-      <img src={productDetail?.thumbnail} alt={productDetail?.thumbnail} />
-      <p>{productDetail?.title}</p>
-      <p>{productDetail?.price}</p>
-      <div>
-        {productDetail?.tags.map((tag) => (
-          <span key={tag}>{tag}</span>
-        ))}
-      </div>
-    </div>
+    <main className={styles.container}>
+      <ContentSection
+        thumbnail={productDetail.thumbnail}
+        reviews={productDetail.reviews}
+        images={productDetail.images}
+      />
+      <InfoSection
+        title={productDetail.title}
+        description={productDetail.description}
+        category={productDetail.category}
+        discountPercentage={productDetail.discountPercentage}
+        price={productDetail.price}
+        thumbnail={productDetail.thumbnail}
+        tags={productDetail.tags}
+        shippingInformation={productDetail.shippingInformation}
+        warrantyInformation={productDetail.warrantyInformation}
+      />
+    </main>
   );
 };

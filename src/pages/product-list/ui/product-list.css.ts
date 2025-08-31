@@ -1,7 +1,5 @@
 import { style } from "@vanilla-extract/css";
 
-import { mediaQuery } from "@/shared/styles/breakpoints.css";
-
 export const container = style({
   display: "grid",
   gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
@@ -15,7 +13,7 @@ export const container = style({
     "(max-width: 800px)": {
       gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
     },
-    [mediaQuery.mobile]: {
+    "(max-width: 400px)": {
       gridTemplateColumns: "repeat(1, minmax(0, 1fr))",
     },
   },

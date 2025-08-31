@@ -19,7 +19,7 @@ export async function fetcher<T>(
 
   if (!parsed.success) {
     console.error(parsed.error);
-    throw new Error("Response validation failed");
+    throw new Error("응답 객체 타입이 일치하지 않습니다.");
   }
 
   return parsed.data;

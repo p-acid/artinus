@@ -6,18 +6,8 @@ import { typography } from "@/shared/styles/typography.css";
 export const card = style({
   display: "flex",
   flexDirection: "column",
-  gap: 12,
+  gap: 16,
   borderRadius: 20,
-});
-
-export const image = style({
-  borderRadius: 16,
-  border: `1px solid ${vars.colors.neutral[200]}`,
-  background: vars.colors.neutral[100],
-  overflow: "hidden",
-  width: "100%",
-  aspectRatio: "1/1",
-  objectFit: "cover",
 });
 
 export const info = style({
