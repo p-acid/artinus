@@ -12,7 +12,7 @@ import * as styles from "./product-list.css";
 export const ProductList = () => {
   const loadMoreRef = useRef<HTMLDivElement>(null);
 
-  const { data, isLoading, setSize } = useInfiniteProductList();
+  const { data, setSize } = useInfiniteProductList();
 
   const products = data?.flatMap(({ products }) => products) ?? [];
   const total = data?.[0].total ?? 0;
@@ -46,20 +46,14 @@ export const ProductList = () => {
 
   return (
     <>
-      {isLoading ? (
-        <div className={styles.loadingSpinner}>
-          <Spinner />
-          Please wait while we load your content
-        </div>
-      ) : (
-        <div className={styles.container}>
-          {products?.map((product) => (
-            <Link key={product.id} to={PAGE_ROUTES.PRODUCT_DETAIL(product.id)}>
-              <ProductCard {...product} />
-            </Link>
-          ))}
-        </div>
-      )}
+      <div className={styles.container}>
+        {products?.map((product) => (
+          <Link key={product.id} to={PAGE_ROUTES.PRODUCT_DETAIL(product.id)}>
+            <ProductCard {...product} />
+          </Link>
+        ))}
+      </div>
+
       <div ref={loadMoreRef} />
       {hasMore && (
         <div className={styles.loadMoreSpinner}>
@@ -67,5 +61,14 @@ export const ProductList = () => {
         </div>
       )}
     </>
+  );
+};
+
+export const ProductListSkeleton = () => {
+  return (
+    <div className={styles.loadingSpinner}>
+      <Spinner />
+      Please wait while we load your content
+    </div>
   );
 };

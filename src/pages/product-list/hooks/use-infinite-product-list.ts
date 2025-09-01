@@ -31,6 +31,7 @@ export const useInfiniteProductList = () =>
     getKey,
     (path) => fetcher(path, GetProductListResponseSchema),
     {
+      suspense: true,
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
       revalidateOnMount: false,
