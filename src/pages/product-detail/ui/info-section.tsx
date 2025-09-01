@@ -1,7 +1,6 @@
 import { Package, ShieldCheck, ShoppingCart } from "lucide-react";
 
-import { ProductThumbnail } from "@/entities/product";
-import type { ProductSchema } from "@/entities/product/model/base.schema";
+import { ProductThumbnail, type ProductSchema } from "@/entities/product";
 import { Button } from "@/shared/ui";
 import { Skeleton } from "@/shared/ui/skeleton";
 import { capitalizeWords } from "@/shared/utils/capitalize-words";

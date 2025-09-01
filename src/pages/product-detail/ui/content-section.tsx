@@ -2,8 +2,11 @@ import { useEffect } from "react";
 
 import { v4 as uuidv4 } from "uuid";
 
-import { ProductThumbnail, ReviewItem } from "@/entities/product";
-import type { ProductSchema } from "@/entities/product/model/base.schema";
+import {
+  ProductThumbnail,
+  ReviewItem,
+  type ProductSchema,
+} from "@/entities/product";
 import { Skeleton } from "@/shared/ui/skeleton";
 
 import { CONTENT_SECTION_IDS } from "../constants";

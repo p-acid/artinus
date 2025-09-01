@@ -36,36 +36,6 @@ export const button = recipe({
           backgroundColor: vars.colors.neutral[700],
         },
       },
-      primary: {
-        border: `1px solid ${vars.colors.primary[700]}`,
-        backgroundColor: vars.colors.primary[700],
-        color: vars.colors.white,
-        ":hover": {
-          borderColor: vars.colors.primary[600],
-          backgroundColor: vars.colors.primary[600],
-        },
-        ":disabled": {
-          color: vars.colors.neutral[300],
-          borderColor: vars.colors.neutral[700],
-          backgroundColor: vars.colors.neutral[700],
-        },
-      },
-      outline: {
-        color: vars.colors.neutral[400],
-        border: `1px solid ${vars.colors.neutral[400]}`,
-        ":hover": {
-          color: vars.colors.neutral[300],
-          borderColor: vars.colors.neutral[300],
-        },
-        ":active": {
-          color: vars.colors.white,
-          borderColor: vars.colors.white,
-        },
-        ":disabled": {
-          color: vars.colors.neutral[600],
-          borderColor: vars.colors.neutral[600],
-        },
-      },
     },
     size: {
       sm: {
