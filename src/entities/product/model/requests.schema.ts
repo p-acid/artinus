@@ -1,8 +1,8 @@
-import { z } from "zod";
+import * as z from "zod/mini";
 
 export const GetProductListRequestSchema = z.object({
-  skip: z.number().optional(),
-  limit: z.number().optional(),
+  skip: z.optional(z.number()),
+  limit: z.optional(z.number()),
 });
 
 export type GetProductListRequestSchema = z.infer<
@@ -10,7 +10,7 @@ export type GetProductListRequestSchema = z.infer<
 >;
 
 export const GetProductDetailRequestSchema = z.object({
-  productId: z.number().nullable(),
+  productId: z.nullable(z.number()),
 });
 
 export type GetProductDetailRequestSchema = z.infer<

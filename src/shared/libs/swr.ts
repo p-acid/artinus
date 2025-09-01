@@ -1,10 +1,10 @@
-import type { ZodType } from "zod";
+import type { ZodMiniType } from "zod/mini";
 
 const BASE_URL = "https://dummyjson.com";
 
 export async function fetcher<T>(
   path: string,
-  schema: ZodType<T>,
+  schema: ZodMiniType<T>,
   init?: RequestInit,
 ): Promise<T> {
   const res = await fetch(`${BASE_URL}${path}`, init);

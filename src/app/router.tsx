@@ -1,10 +1,22 @@
+import { lazy } from "react";
+
 import { createBrowserRouter, Navigate } from "react-router";
 
-import { ProductDetailPage } from "@/pages/product-detail";
-import { ProductListPage } from "@/pages/product-list";
 import { PAGE_ROUTES } from "@/shared/consts/page-routes";
 
 import { RootLayout } from "./layout/root-layout";
+
+const ProductListPage = lazy(() =>
+  import("@/pages/product-list").then(({ ProductListPage }) => ({
+    default: ProductListPage,
+  })),
+);
+
+const ProductDetailPage = lazy(() =>
+  import("@/pages/product-detail").then(({ ProductDetailPage }) => ({
+    default: ProductDetailPage,
+  })),
+);
 
 export const router = createBrowserRouter([
   {

@@ -20,7 +20,11 @@ export const skeletonContainer = style([
     display: "flex",
     flexDirection: "column",
     gap: 20,
-    padding: 20,
+    "@media": {
+      [mediaQuery.mobile]: {
+        padding: 20,
+      },
+    },
   },
 ]);
 

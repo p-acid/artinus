@@ -1,6 +1,6 @@
-import { z } from "zod";
+import type { ZodMiniType } from "zod/mini";
 
-export const parseRequest = <T extends z.ZodTypeAny>(
+export const parseRequest = <T extends ZodMiniType>(
   schema: T,
   data: unknown,
 ) => {

@@ -1,4 +1,4 @@
-import z from "zod";
+import * as z from "zod/mini";
 
 export const AvailabilityStatusSchema = z.enum([
   "In Stock",
@@ -24,7 +24,7 @@ export const ProductSchema = z.object({
   description: z.string(),
   category: z.string(),
   discountPercentage: z.number(),
-  brand: z.string().optional(),
+  brand: z.optional(z.string()),
   price: z.number(),
   thumbnail: z.string(),
   tags: z.array(z.string()),
