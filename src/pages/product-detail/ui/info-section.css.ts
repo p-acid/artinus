@@ -61,7 +61,7 @@ export const priceLine = style({
   gap: 4,
 });
 
-export const discountRate = style({
+export const discountPercentage = style({
   color: vars.colors.error,
   ...typography.heading_3,
 });

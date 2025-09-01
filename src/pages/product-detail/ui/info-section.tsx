@@ -50,7 +50,9 @@ export const InfoSection = ({
       <div className={styles.priceWrapper}>
         <span className={styles.originalPrice}>${price}</span>
         <div className={styles.priceLine}>
-          <span className={styles.discountRate}>{discountPercentage}%</span>
+          <span className={styles.discountPercentage}>
+            {discountPercentage}%
+          </span>
           <span className={styles.discountedPrice}>
             ${getDiscountedPrice(price, discountPercentage)}
           </span>
