@@ -17,6 +17,7 @@ export const useProductDetail = (request: GetProductDetailRequestSchema) => {
       : null,
     (url) => fetcher(url, GetProductDetailResponseSchema),
     {
+      suspense: true,
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
     },

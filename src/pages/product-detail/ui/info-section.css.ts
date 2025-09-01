@@ -21,6 +21,20 @@ export const container = style({
   },
 });
 
+export const skeletonContainer = style([
+  container,
+  {
+    display: "flex",
+    flexDirection: "column",
+    gap: 16,
+    "@media": {
+      [mediaQuery.mobile]: {
+        display: "none",
+      },
+    },
+  },
+]);
+
 export const thumbnail = style({
   display: "none",
   "@media": {

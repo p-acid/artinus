@@ -14,6 +14,16 @@ export const container = style({
   },
 });
 
+export const skeletonContainer = style([
+  container,
+  {
+    display: "flex",
+    flexDirection: "column",
+    gap: 20,
+    padding: 20,
+  },
+]);
+
 export const thumbnail = style({
   marginBottom: 36,
 

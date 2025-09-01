@@ -1,21 +1,19 @@
+import { Suspense } from "react";
+
 import { useParams } from "react-router";
 
 import { useProductDetail } from "../hooks/use-product-detail";
 import type { ProductDetailPageParams } from "../types/page-params";
-import { ContentSection } from "./content-section";
+import { ContentSection, ContentSectionSkeleton } from "./content-section";
 import * as styles from "./index.css";
-import { InfoSection } from "./info-section";
+import { InfoSection, InfoSectionSkeleton } from "./info-section";
 
-export const ProductDetailPage = () => {
+const ProductDetailPageBase = () => {
   const { productId } = useParams<ProductDetailPageParams>();
 
   const { data: productDetail } = useProductDetail({
     productId: productId ? Number(productId) : null,
   });
-
-  if (!productDetail) {
-    return <div>로딩중 ...</div>;
-  }
 
   return (
     <main className={styles.container}>
@@ -36,5 +34,22 @@ export const ProductDetailPage = () => {
         warrantyInformation={productDetail.warrantyInformation}
       />
     </main>
+  );
+};
+
+const ProductDetailPageSkeleton = () => {
+  return (
+    <main className={styles.container}>
+      <ContentSectionSkeleton />
+      <InfoSectionSkeleton />
+    </main>
+  );
+};
+
+export const ProductDetailPage = () => {
+  return (
+    <Suspense fallback={<ProductDetailPageSkeleton />}>
+      <ProductDetailPageBase />
+    </Suspense>
   );
 };

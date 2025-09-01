@@ -4,7 +4,7 @@ import { Link } from "react-router";
 
 import { ProductCard } from "@/entities/product";
 import { PAGE_ROUTES } from "@/shared/consts/page-routes";
-import { Spinner } from "@/shared/ui/spinner";
+import { Spinner } from "@/shared/ui";
 
 import { useInfiniteProductList } from "../hooks/use-infinite-product-list";
 import * as styles from "./product-list.css";

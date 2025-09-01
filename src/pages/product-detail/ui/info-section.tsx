@@ -3,6 +3,7 @@ import { Package, ShieldCheck, ShoppingCart } from "lucide-react";
 import { ProductThumbnail } from "@/entities/product";
 import type { ProductSchema } from "@/entities/product/model/base.schema";
 import { Button } from "@/shared/ui";
+import { Skeleton } from "@/shared/ui/skeleton";
 import { capitalizeWords } from "@/shared/utils/capitalize-words";
 import { getDiscountedPrice } from "@/shared/utils/get-discounted-price";
 
@@ -84,5 +85,20 @@ export const InfoSection = ({
         </ul>
       </div>
     </section>
+  );
+};
+
+export const InfoSectionSkeleton = () => {
+  return (
+    <div className={styles.skeletonContainer}>
+      <Skeleton height={20} />
+      <Skeleton height={36} />
+      <Skeleton height={52} />
+      <Skeleton height={48} />
+      <Skeleton height={24} />
+      <Skeleton height={24} />
+      <Skeleton height={48} />
+      <Skeleton height={28} />
+    </div>
   );
 };
