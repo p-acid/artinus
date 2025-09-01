@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { CONTENT_SECTION_IDS } from "../constants";
 import * as styles from "./content-nav.css";
@@ -15,7 +15,7 @@ const LINKS = [
 ];
 
 export const ContentNav = () => {
-  const [selected, setSelected] = useState(LINKS[0].value);
+  const [selected, setSelected] = useState<string>(LINKS[0].value);
 
   const selectedIndex = LINKS.findIndex(({ value }) => selected === value);
 
@@ -26,9 +26,40 @@ export const ContentNav = () => {
       section.scrollIntoView({
         behavior: "smooth",
       });
-      setSelected(id);
     }
   };
+
+  useEffect(() => {
+    const ids = Object.values(CONTENT_SECTION_IDS);
+
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+
+      let current: string | null = null;
+
+      ids.forEach((id) => {
+        const element = document.getElementById(id);
+        if (!element) return;
+
+        const elementTop = element.offsetTop;
+
+        if (scrollTop >= elementTop - 64) {
+          current = id;
+        }
+      });
+
+      if (current && current !== selected) {
+        setSelected(current);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [selected]);
 
   return (
     <div className={styles.container}>
