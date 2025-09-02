@@ -18,6 +18,12 @@ const ProductDetailPage = lazy(() =>
   })),
 );
 
+const NotFoundPage = lazy(() =>
+  import("@/pages/not-found").then(({ NotFoundPage }) => ({
+    default: NotFoundPage,
+  })),
+);
+
 export const router = createBrowserRouter([
   {
     element: <RootLayout />,
@@ -33,6 +39,10 @@ export const router = createBrowserRouter([
       {
         path: PAGE_ROUTES.PRODUCT_DETAIL(),
         element: <ProductDetailPage />,
+      },
+      {
+        path: "*",
+        element: <NotFoundPage />,
       },
     ],
   },
